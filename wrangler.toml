@@ -12,12 +12,15 @@ compatibility_flags = ["nodejs_compat"]
 # https://<extension-id>.chromiumapp.org/ WITH a trailing slash.)
 [vars]
 PROD_CLIENT_ID = "52105"
-# DEV_WIN intentionally blank — confidential Windows app not yet registered.
+# DEV_WIN_CLIENT_ID intentionally blank — set to "52058" when activating
+# the Windows side. Both dev origins share the same chrome-extension ID
+# because src/manifest.ts pins the public key, so every unpacked dev
+# install (linux + windows) derives the same ID.
 DEV_WIN_CLIENT_ID = ""
 DEV_LINUX_CLIENT_ID = "52079"
 ALLOWED_ORIGINS_PROD = "chrome-extension://nmalcfpnieandofopopffppijcadibkg"
-ALLOWED_ORIGINS_DEV_WIN = ""
-ALLOWED_ORIGINS_DEV_LINUX = "chrome-extension://ghpeeacegimjpghbpekkcbneccplpamg"
+ALLOWED_ORIGINS_DEV_WIN = "chrome-extension://nllmfpgnfndapapboelfefhdoneljhhk"
+ALLOWED_ORIGINS_DEV_LINUX = "chrome-extension://nllmfpgnfndapapboelfefhdoneljhhk"
 
 # Observability — uncomment after `wrangler login` to ship logs to Tail.
 # [observability]
