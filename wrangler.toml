@@ -6,15 +6,18 @@ compatibility_flags = ["nodejs_compat"]
 # Public, non-secret configuration. Real values must be set before deploy.
 # Secrets (BUNGIE_CLIENT_SECRET_*, BUNGIE_API_KEY_*) are NOT in this file —
 # set them with `wrangler secret put <NAME>`.
+#
+# Origin format: chrome-extension://<extension-id> — NO trailing slash, NO path.
+# (Distinct from each app's Bungie-portal redirect_uri, which is
+# https://<extension-id>.chromiumapp.org/ WITH a trailing slash.)
 [vars]
-PROD_CLIENT_ID = ""
+PROD_CLIENT_ID = "52105"
+# DEV_WIN intentionally blank — confidential Windows app not yet registered.
 DEV_WIN_CLIENT_ID = ""
-DEV_LINUX_CLIENT_ID = ""
-# Comma-separated list of allowed Origin header values per client.
-# Example: "chrome-extension://nmalcfpnieandofopopffppijcadibkg"
-ALLOWED_ORIGINS_PROD = ""
+DEV_LINUX_CLIENT_ID = "52079"
+ALLOWED_ORIGINS_PROD = "chrome-extension://nmalcfpnieandofopopffppijcadibkg"
 ALLOWED_ORIGINS_DEV_WIN = ""
-ALLOWED_ORIGINS_DEV_LINUX = ""
+ALLOWED_ORIGINS_DEV_LINUX = "chrome-extension://ghpeeacegimjpghbpekkcbneccplpamg"
 
 # Observability — uncomment after `wrangler login` to ship logs to Tail.
 # [observability]
